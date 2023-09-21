@@ -5,12 +5,12 @@ from zip_to_coordinates import get_coordinates_from_zip  # Import the function
 
 app = Flask(__name__)
 
-# Database Configuration (Replace with your actual database configuration)
+# Database Configuration 
 db = mysql.connector.connect(
     host="localhost",
     user="root",
     password="Flashboy1234$",
-    database="fastfooddatadb"  # Change to your database name
+    database="fastfooddatadb"  
 )
 
 cursor = db.cursor()
