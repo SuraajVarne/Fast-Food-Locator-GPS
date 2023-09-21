@@ -46,3 +46,4 @@ Update the database configuration in main.py to match your setup:db = pymysql.co
 
 ## Usage 
 Run the Flask application:python main.py
+Access the web application in your web browser at http://localhost:5000.
