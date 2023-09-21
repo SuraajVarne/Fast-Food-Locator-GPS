@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='looks.css') }}">
+    <style>
+        /* Center-align text */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Style the title */
+        .title {
+            font-family: 'Arial', sans-serif;
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Style the label */
+        label {
+            font-family: 'Arial', sans-serif;
+            font-size: 18px;
+            color: #333;
+        }
+
+        /* Style the input */
+        input[type="text"] {
+            width: 200px;
+            padding: 5px;
+            margin-right: 10px;
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+            color: #333;
+        }
+
+        /* Style the button */
+        button {
+            padding: 5px 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+        }
+
+        /* Style the footer */
+        .footer {
+            font-family: 'Arial', sans-serif;
+            font-size: 14px;
+            color: #666;
+            margin-top: 20px;
+        }
+    </style>
+    <title>Fast Food Locator</title>
+</head>
+<body>
+    <h1 class="title">Fast Food Locator</h1>
+    <form method="POST" action="/find">
+        <label for="zip_code">Enter ZIP Code:</label>
+        <input type="text" name="zip_code" id="zip_code" required>
+        <button type="submit">Find</button>
+    </form>
+    <div class="footer">
+        Web App by Suraj Varne Sheela
+    </div>
+</body>
+</html>

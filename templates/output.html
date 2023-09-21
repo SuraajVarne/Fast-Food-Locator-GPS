@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='looks.css') }}">
+    <title>Fast Food Locator - Results</title>
+</head>
+<body>
+    <div class="results-container">
+        <h1>Fast Food Locator - Results</h1>
+        <a href="/">Back to Search</a>
+
+        <h2>Search Results</h2>
+        <ul class="results-list">
+            {% if data %}
+                {% for restaurant in data %}
+                    <li class="result">
+                        <h2>Name: {{ restaurant['name'] }}</h2>
+                        <p>Address: {{ restaurant['address'] }}</p>
+                        <p>Distance: {{ restaurant['distance'] }} miles</p>
+                    </li>
+                {% endfor %}
+            {% else %}
+                <p>No results found.</p>
+            {% endif %}
+        </ul>
+    </div>
+</body>
+</html>
+
+

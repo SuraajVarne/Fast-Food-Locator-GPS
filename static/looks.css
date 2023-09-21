@@ -1,0 +1,43 @@
+/* Static CSS styles for your web app */
+
+/* Center-align the results container */
+.results-container {
+    max-width: 800px;
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center-align text inside the container */
+}
+
+/* Remove bullet points from list */
+.results-list {
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+}
+
+/* Style each result item */
+.result {
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    color: #333;
+    display: inline-block; /* Display results horizontally */
+    text-align: left; /* Left-align result text */
+}
+
+.result h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.result p {
+    font-size: 16px;
+    color: #333;
+    margin: 0;
+}
