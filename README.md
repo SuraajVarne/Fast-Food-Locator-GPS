@@ -1,30 +1,26 @@
-# Fast Food Locator GPS
+# Fast Food Locator
 
-![Project Logo/Icon](link-to-your-project-logo-or-icon.png) <!-- If applicable, add a logo or icon here -->
+## Introduction
 
-## Overview
-
-The Fast Food Locator GPS is a Python-based web application that helps users find fast-food restaurants in their area using GPS coordinates. This project aims to provide a convenient way for users to discover nearby fast food options.
+Fast Food Locator is a web application that helps users find nearby fast food restaurants based on their ZIP code. It uses Python, Flask, and the Google Maps API to provide this functionality.
 
 ## Features
 
-- **Location-Based Search:** Utilizes GPS coordinates to locate nearby fast-food restaurants.
-- **Interactive Map:** Displays restaurant locations on an interactive map.
-- **Restaurant Details:** Provides information about each restaurant, including name, address, and contact information.
+- Search for fast food restaurants by entering a ZIP code.
+- View a list of fast food restaurants sorted by proximity.
+- Click on a restaurant to see more details.
+
+## Technologies Used
+
+- Python
+- Flask
+- Google Maps API
+- MySQL
 
 ## Getting Started
 
-Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
+To run this project on your local machine, follow these steps:
 
-### Prerequisites
-
-- Python 3.x
-- [Virtualenv](https://pypi.org/project/virtualenv/) (optional but recommended)
-- Dependencies listed in `requirements.txt`
-
-### Installation
-
-1. Clone the repository:
-
-   ```shell
+1. Clone this repository:
+   ```bash
    git clone https://github.com/SuraajVarne/Fast-Food-Locator-GPS.git
