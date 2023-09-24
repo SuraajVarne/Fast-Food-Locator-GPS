@@ -5,20 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='looks.css') }}">
     <title>Fast Food Locator - Results</title>
+    <style>
+        /* Additional CSS styles */
+        .center {
+            text-align: center;
+        }
+
+        .results-container {
+            max-width: 800px;
+            margin: 0 auto; /* Center the container horizontally */
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Center-align text inside the container */
+        }
+
+        .back-link {
+            display: block; /* Make the link a block-level element */
+            margin: 20px auto; /* Center-align the link */
+            text-align: center; /* Center-align text inside the link */
+        }
+
+        /* Rest of your existing CSS styles */
+    </style>
 </head>
 <body>
+    <h1 class="center">Fast Food Locator - Results</h1>
+    <a class="back-link center" href="/">Back to Search</a>
     <div class="results-container">
-        <h1>Fast Food Locator - Results</h1>
-        <a href="/">Back to Search</a>
-
-        <h2>Search Results</h2>
+        <p><strong>Search Results</strong></p>
+        <p><em>Click on a restaurant name for address</em></p>
         <ul class="results-list">
             {% if data %}
-                {% for restaurant in data %}
+                {% for place in data %}
                     <li class="result">
-                        <h2>Name: {{ restaurant['name'] }}</h2>
-                        <p>Address: {{ restaurant['address'] }}</p>
-                        <p>Distance: {{ restaurant['distance'] }} miles</p>
+                        <h2><a href="#" onclick="toggleAddress('address_{{ loop.index0 }}')">{{ place.name }}</a></h2>
+                        <p><strong>Distance:</strong> {{ place.distance }} miles</p>
+                        <p class="address" id="address_{{ loop.index0 }}" style="display: none;"><strong>Address:</strong> {{ place.address }}</p>
                     </li>
                 {% endfor %}
             {% else %}
@@ -26,7 +50,20 @@
             {% endif %}
         </ul>
     </div>
+    <div class="footer">
+        Web App by Suraj Varne Sheela
+    </div>
+
+    <!-- JavaScript to show/hide the address when clicking on a restaurant name -->
+    <script>
+        function toggleAddress(elementId) {
+            var addressElement = document.getElementById(elementId);
+            if (addressElement.style.display === "none") {
+                addressElement.style.display = "block";
+            } else {
+                addressElement.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
-
-
