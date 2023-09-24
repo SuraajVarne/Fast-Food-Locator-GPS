@@ -45,5 +45,16 @@ Update the database configuration in main.py to match your setup:db = pymysql.co
 ) replace the API key in main.py with your own:gmaps = googlemaps.Client(key='YOUR_GOOGLE_MAPS_API_KEY')
 
 ## Usage 
-Run the Flask application:python main.py
+Run the Flask application:
+cd /pathto/Fast-Food-Locator-GPSproject/directory
+Activate virtual environment- 
+macOS/Linux-
+source venv/bin/activate
+
+Windows-
+.\venv\Scripts\Activate.ps1
+
+Run-
+
+python main.py
 Access the web application in your web browser at http://localhost:5000.
