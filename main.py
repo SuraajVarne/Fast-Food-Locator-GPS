@@ -5,12 +5,12 @@ from zip_to_coordinates import get_coordinates_from_zip  # Import the function
 
 app = Flask(__name__)
 
-# Database Configuration 
+# Database Configuration (Replace with your actual database configuration)
 db = mysql.connector.connect(
     host="localhost",
     user="root",
     password="Flashboy1234$",
-    database="fastfooddatadb"  
+    database="fastfooddatadb"  # Change to your database name
 )
 
 cursor = db.cursor()
@@ -23,16 +23,10 @@ def index():
 def find_nearest():
     try:
         user_zip = request.form['zip_code']
-        
-        # Print the user's ZIP code for debugging
-        print(f'User ZIP Code: {user_zip}')
-        
+
         user_latitude, user_longitude = get_coordinates_from_zip(user_zip)
 
-        # Print the user's coordinates for debugging
-        print(f'User Latitude: {user_latitude}, User Longitude: {user_longitude}')
-
-        cursor.execute("SELECT name, address, latitude, longitude FROM fast_food_restaurants")
+        cursor.execute("SELECT DISTINCT name, address, latitude, longitude FROM fast_food_restaurants")
         places = cursor.fetchall()
 
         nearest_places = []
@@ -49,7 +43,7 @@ def find_nearest():
         nearest_places.sort(key=lambda x: x['distance'])
 
         return render_template('output.html', data=nearest_places)
-    
+
     except mysql.connector.Error as db_error:
         error_message = f"MySQL Error: {db_error}"
         return render_template('error.html', message=error_message)
@@ -57,15 +51,7 @@ def find_nearest():
         error_message = f"An error occurred: {str(e)}"
         return render_template('error.html', message=error_message)
 
-@app.route('/test-database')
-def test_database():
-    try:
-        cursor.execute("SELECT * FROM fast_food_restaurants LIMIT 5")
-        data = cursor.fetchall()
-        print(data)
-        return "Database connection is working. Fetched data: " + str(data)
-    except mysql.connector.Error as db_error:
-        return "MySQL Error: " + str(db_error)
+# ... (rest of the code)
 
 if __name__ == '__main__':
     app.run(debug=True)
