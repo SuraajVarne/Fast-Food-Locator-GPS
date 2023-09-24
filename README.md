@@ -31,6 +31,11 @@ To run this project on your local machine, follow these steps:
 ## Navigate to the project directory
 
 cd Fast-Food-Locator-GPS
+## Activate Virtual Environment 
+Mac/Linux-source venv/bin/activate
+Windows- venv\Scripts\activate
+
+
 pip install -r requirements.txt
 
 ## Database Setup
