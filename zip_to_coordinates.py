@@ -11,7 +11,6 @@ def get_coordinates_from_zip(zip_code, api_key=None):
             'postalcode': zip_code,
         }
 
-        # If you have an API key, include it in the headers
         if api_key:
             headers = {'User-Agent': 'YourApp', 'apikey': api_key}
         else:
