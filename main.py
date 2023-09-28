@@ -2,15 +2,21 @@ from flask import Flask, render_template, request
 from geopy.distance import geodesic
 import mysql.connector
 from zip_to_coordinates import get_coordinates_from_zip  # Import the function
+import googlemaps
 
+# Initializing the Flask app
 app = Flask(__name__)
 
-# Database Configuration (Replace with your actual database configuration)
+API_KEY = 'AIzaSyBdpCefyz6lw6RUHVdmk3eC_tqp2_UsYAs'
+
+gmaps = googlemaps.Client(key=API_KEY)
+
+# Database Configuration 
 db = mysql.connector.connect(
     host="localhost",
     user="root",
     password="Flashboy1234$",
-    database="fastfooddatadb"  # Change to your database name
+    database="fastfooddatadb" 
 )
 
 cursor = db.cursor()
@@ -26,17 +32,18 @@ def find_nearest():
 
         user_latitude, user_longitude = get_coordinates_from_zip(user_zip)
 
-        cursor.execute("SELECT DISTINCT name, address, latitude, longitude FROM fast_food_restaurants")
+        cursor.execute("SELECT DISTINCT name, address, city, state, latitude, longitude FROM fast_food_restaurants")
         places = cursor.fetchall()
 
         nearest_places = []
 
         for place in places:
-            place_name, place_address, place_latitude, place_longitude = place
+            place_name, place_address, place_city, place_state, place_latitude, place_longitude = place
             distance = geodesic((user_latitude, user_longitude), (place_latitude, place_longitude)).miles
+            full_address = f"{place_address}, {place_city}, {place_state}"
             nearest_places.append({
                 'name': place_name,
-                'address': place_address,
+                'address': full_address,
                 'distance': round(distance, 2)
             })
 
@@ -50,8 +57,6 @@ def find_nearest():
     except Exception as e:
         error_message = f"An error occurred: {str(e)}"
         return render_template('error.html', message=error_message)
-
-# ... (rest of the code)
 
 if __name__ == '__main__':
     app.run(debug=True)
