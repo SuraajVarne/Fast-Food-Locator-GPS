@@ -51,6 +51,14 @@
             font-size: 16px;
         }
 
+        /* Style the message */
+        .message {
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+            color: #666;
+            margin-top: 10px;
+        }
+
         /* Style the footer */
         .footer {
             font-family: 'Arial', sans-serif;
@@ -63,11 +71,13 @@
 </head>
 <body>
     <h1 class="title">Fast Food Locator</h1>
+    <p class="message">Enter your ZIP code below to find nearby fast food restaurants:</p>
     <form method="POST" action="/find">
-        <label for="zip_code">Enter ZIP Code:</label>
+        <label for="zip_code">ZIP Code:</label>
         <input type="text" name="zip_code" id="zip_code" required>
         <button type="submit">Find</button>
     </form>
+    <p class="message">*Note: Only US zip codes are supported.</p>
     <div class="footer">
         Web App by Suraj Varne Sheela
     </div>
